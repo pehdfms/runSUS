@@ -9,37 +9,34 @@
 
 void sair();
 int teclasMenuSair(int tecla, int *posicao);
+void desenharSetasMenuSair(int posicao);
 
 // TODO: Separar a escrita das setas no menu para uma funcao separada
 
 void sair() {
     // Escreve o menu sair e pega interacao com o usuario
-    const int VOLTAR = 0, FECHAR = 1;
     const int quantidadeOpcoes = 2; // Quantidade de opcoes
     int POSICAO = 0; // Posicao da seta do usuario no menu
 
+    system("cls");
+
+    printf("###########################################################################\n");
+    printf("\n\n                                                                       \n");
+    printf("                     VOCE TEM CERTEZA QUE DESEJA SAIR?                     \n");
+    printf("                                                                           \n");
+    printf("                                 >VOLTAR                                   \n");
+    printf("                                   SAIR                                    \n");
+    printf("\n\n                                                                       \n");
+    printf("###########################################################################\n");
+
     while(1) {
-        system("cls");
-
-        printf("###########################################################################\n");
-        printf("\n\n                                                                       \n");
-        printf("                     VOCE TEM CERTEZA QUE DESEJA SAIR?                     \n");
-        printf("                                                                           \n");
-
-        printf("\t\t\t\t");
-        if (POSICAO == VOLTAR) printf(">");
-        printf("VOLTAR\n");
-
-        printf("\t\t\t\t");
-        if (POSICAO == FECHAR) printf(">");
-        printf("SAIR\n");
-        printf("\n\n                                                                       \n");
-        printf("###########################################################################\n");
-
         int tecla = getch(); // Pega tecla do usuario
 
         // Move sua posicao no menu dependendo de que botao clicou
         moverPosicaoMenu(tecla, quantidadeOpcoes, &POSICAO);
+
+        // Desenha uma seta na opcao escolhida
+        desenharSetasMenuSair(POSICAO);
 
         // Interacao com os botoes do menu
         // teclasMenuSair retorna 1 quando o jogador quer voltar ao menu inicial
@@ -72,6 +69,22 @@ int teclasMenuSair(int tecla, int *posicao) {
     }
 
     return 0;
+}
+
+void desenharSetasMenuSair(int posicao) {
+    // Desenha as setas no menu sair quando o jogador troca opcoes
+    const int posxPorOpcao[2] = {33, 34}; // Posicoes x onde a seta deve ser inserida
+    const int posyPrimeiraOpcao = 6; // Posicao y da seta na primeira opcao
+
+    // Percorre a quantidade de opcoes
+    for (int i = 0; i < 2; i++) {
+        // Coloca o cursor na posicao aonde a seta pode ser inserida
+        setPosCursor(posxPorOpcao[i], posyPrimeiraOpcao + i);
+
+        // Se for a opcao selecionada, escreve >, se nao, limpa o > que ta ali (troca por espaco)
+        if (posicao == i) printf(">");
+        else printf(" ");
+    }
 }
 
 /* void desenharSetasMenuInicial(int posicao) { */
