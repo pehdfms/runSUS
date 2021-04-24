@@ -36,8 +36,6 @@ void sair() {
         printf("\n\n                                                                       \n");
         printf("###########################################################################\n");
 
-        // Se a funcao retornar 1, significa que usuario pressionou VOLTAR
-        // e devemos voltar para o menu inicial
         int tecla = getch(); // Pega tecla do usuario
 
         // Move sua posicao no menu dependendo de que botao clicou
