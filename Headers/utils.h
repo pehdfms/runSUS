@@ -24,6 +24,7 @@ void inicializarPlacar(Score ranking[]);
 int lerArquivoRanking(Score ranking[]);
 void salvarArquivoRanking(Score ranking[]);
 void moverPosicaoMenu(int tecla, int quantidadeOpcoes, int * posicao);
+void desenharSetas(int quantidadeOpcoes, int posicao, int posxPorOpcao[]);
 
 void salvarArquivoRanking(Score ranking[]) {
     // Tenta salvar um arquivo ranking.txt para salvar o ranking
@@ -116,20 +117,22 @@ Score criarScore(char nome[5], int pontuacao) {
     return novoScore;
 }
 
-// TODO funcao desenharSetas generalizada
-/* void desenharSetas(int quantidadeOpcoes, int posicao, int posyPrimeiraOpcao, int posxPorOpcao[]); */
-/* void desenharSetas(int quantidadeOpcoes, int posicao, int posyPrimeiraOpcao, int posxPorOpcao[]) { */
-/*     // Desenha as setas em menus de opcao (e.g Inicial, Sair) */
-/*     // Percorre a quantidade de opcoes */
-/*     for (int i =0; i < quantidadeOpcoes; i++) { */
-/*         // Coloca o cursor na posicao aonde a seta deve ser inserida */
-/*         setPosCursor(posxPorOpcao[i], posyPrimeiraOpcao+i); */
+void desenharSetas(int quantidadeOpcoes, int posicao, int posxPorOpcao[]) {
+    // Desenha as setas em menus de opcao (e.g Inicial, Sair)
+    // posxPorOpcao e a posicao x aonde deve ser inserida a seta para cada opcao recebida
+    // Posicao y da primeira opcao
+    const int posyPrimeiraOpcao = 6; // Sempre 6 por enquanto, possivel argumento depois?
 
-/*         // Se for a opcao selecionada escrevemos >, se nao, limpamos o > que pode estar ali */
-/*         if (posicao == i) printf(">"); */
-/*         else printf(" "); */
-/*     } */
-/* } */
+    // Percorre a quantidade de opcoes
+    for (int i =0; i < quantidadeOpcoes; i++) {
+        // Coloca o cursor na posicao aonde a seta deve ser inserida
+        setPosCursor(posxPorOpcao[i], posyPrimeiraOpcao+i);
+
+        // Se for a opcao selecionada escrevemos >, se nao, limpamos o > que pode estar ali
+        if (posicao == i) printf(">");
+        else printf(" ");
+    }
+}
 
 void moverPosicaoMenu(int tecla, int quantidadeOpcoes, int * posicao) {
     // Recebe uma tecla do usuario e utiliza ela para alterar a posicao
