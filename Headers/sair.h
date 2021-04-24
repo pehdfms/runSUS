@@ -9,11 +9,11 @@
 
 void sair();
 int teclasMenuSair(int tecla, int posicao);
-void desenharSetasMenuSair(int posicao);
 
 void sair() {
     // Escreve o menu sair e pega interacao com o usuario
     const int quantidadeOpcoes = 2; // Quantidade de opcoes
+    int posxPorOpcao[2] = {33, 34}; // Posicoes x de setas nas opcoes do menu
     int POSICAO = 0; // Posicao da seta do usuario no menu
 
     system("cls");
@@ -33,14 +33,15 @@ void sair() {
         // Move sua posicao no menu dependendo de que botao clicou
         moverPosicaoMenu(tecla, quantidadeOpcoes, &POSICAO);
 
-        // Desenha uma seta na opcao escolhida
-        desenharSetasMenuSair(POSICAO);
-
         // Interacao com os botoes do menu
         // teclasMenuSair retorna 1 quando o jogador quer voltar ao menu inicial
         // portanto devemos esperar esse 1 e retornar aqui tambem se o recebemos
         int devemosRetornar = teclasMenuSair(tecla, POSICAO);
         if (devemosRetornar) return;
+
+        // Desenha uma seta na opcao escolhida
+        desenharSetas(POSICAO, quantidadeOpcoes, posxPorOpcao);
+
     }
 }
 
@@ -68,22 +69,6 @@ int teclasMenuSair(int tecla, int posicao) {
     }
 
     return 0;
-}
-
-void desenharSetasMenuSair(int posicao) {
-    // Desenha as setas no menu sair quando o jogador troca opcoes
-    const int posxPorOpcao[2] = {33, 34}; // Posicoes x onde a seta deve ser inserida
-    const int posyPrimeiraOpcao = 6; // Posicao y da seta na primeira opcao
-
-    // Percorre a quantidade de opcoes
-    for (int i = 0; i < 2; i++) {
-        // Coloca o cursor na posicao aonde a seta pode ser inserida
-        setPosCursor(posxPorOpcao[i], posyPrimeiraOpcao + i);
-
-        // Se for a opcao selecionada, escreve >, se nao, limpa o > que ta ali (troca por espaco)
-        if (posicao == i) printf(">");
-        else printf(" ");
-    }
 }
 
 #endif

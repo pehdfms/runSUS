@@ -15,7 +15,6 @@
 void desenharTelaInicial();
 void menuInicial(Score ranking[]);
 void teclasMenuInicial(int tecla, int posicao, Score ranking[]);
-void desenharSetasMenuInicial(int posicao);
 
 void desenharTelaInicial() {
     // Limpa e desenha a tela estatica do menu inicial
@@ -36,6 +35,7 @@ void desenharTelaInicial() {
 void menuInicial(Score ranking[]) {
     // Escreve o menu inicial e pega interacao com o usuario
     const int quantidadeOpcoes = 4; // Quantidade de opcoes
+    int posxPorOpcao[4] = {33, 33, 32, 34}; // Posicoes x onde a seta deve ser inserida
     int POSICAO = 0; // Posicao da seta do usuario no menu
 
     // Desenha a tela
@@ -52,7 +52,7 @@ void menuInicial(Score ranking[]) {
         teclasMenuInicial(tecla, POSICAO, ranking);
 
         // Desenha as setas de selecao no menu
-        desenharSetasMenuInicial(POSICAO);
+        desenharSetas(POSICAO, quantidadeOpcoes, posxPorOpcao);
     }
 }
 
@@ -70,22 +70,6 @@ void teclasMenuInicial(int tecla, int posicao, Score ranking[]) {
 
         // Reescreve a tela inicial quando retornamos nela
         desenharTelaInicial();
-    }
-}
-
-void desenharSetasMenuInicial(int posicao) {
-    // Desenha as setas no menu inicial quando o jogador troca opcoes
-    int posxPorOpcao[4] = {33, 33, 32, 34}; // Posicoes x onde a seta deve ser inserida
-    int posyPrimeiraOpcao = 6; // Posicao y da seta na primeira opcao
-
-    // Percorre a quantidade de opcoes
-    for (int i = 0; i < 4; i++) {
-        // Coloca o cursor na posicao aonde a seta pode ser inserida
-        setPosCursor(posxPorOpcao[i], posyPrimeiraOpcao + i);
-
-        // Se for a opcao selecionada, escreve >, se nao, limpa o > que ta ali (troca por espaco)
-        if (posicao == i) printf(">");
-        else printf(" ");
     }
 }
 

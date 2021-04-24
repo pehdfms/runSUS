@@ -24,8 +24,7 @@ void inicializarPlacar(Score ranking[]);
 int lerArquivoRanking(Score ranking[]);
 void salvarArquivoRanking(Score ranking[]);
 void moverPosicaoMenu(int tecla, int quantidadeOpcoes, int * posicao);
-void desenharSetas(int quantidadeOpcoes, int posicao, int posxPorOpcao[]);
-
+void desenharSetas(int posicao, int quantidadeOpcoes, int posxPorOpcao[]);
 void salvarArquivoRanking(Score ranking[]) {
     // Tenta salvar um arquivo ranking.txt para salvar o ranking
     FILE * arquivo;
@@ -117,7 +116,7 @@ Score criarScore(char nome[5], int pontuacao) {
     return novoScore;
 }
 
-void desenharSetas(int quantidadeOpcoes, int posicao, int posxPorOpcao[]) {
+void desenharSetas(int posicao, int quantidadeOpcoes, int posxPorOpcao[]) {
     // Desenha as setas em menus de opcao (e.g Inicial, Sair)
     // posxPorOpcao e a posicao x aonde deve ser inserida a seta para cada opcao recebida
     // Posicao y da primeira opcao
