@@ -131,13 +131,20 @@ Score criarScore(char nome[5], int pontuacao) {
 /* } */
 
 void moverPosicaoMenu(int tecla, int quantidadeOpcoes, int * posicao) {
+    // Recebe uma tecla do usuario e utiliza ela para alterar a posicao
     switch(tecla) {
         case KEY_DOWN:
-            (*posicao)++;
+            // Se ele clicou seta para baixo
+            (*posicao)++; // Movimentamos para baixo (maior = mais para baixo)
+
+            // Se estivermos na ultima opcao, voltamos ao inicio
             if (*posicao > quantidadeOpcoes-1) *posicao = 0;
             break;
         case KEY_UP:
-            (*posicao)--;
+            // Se ele clicou seta para cima
+            (*posicao)--; // Movimentamos para cima (menor = mais para cima)
+
+            // Se estivermos na primeira opcao, mudamos para a ultima
             if (*posicao < 0) *posicao = quantidadeOpcoes-1;
             break;
     }
