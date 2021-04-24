@@ -41,7 +41,8 @@ void sair() {
         // Interacao com os botoes do menu
         // teclasMenuSair retorna 1 quando o jogador quer voltar ao menu inicial
         // portanto devemos esperar esse 1 e retornar aqui tambem se o recebemos
-        if (teclasMenuSair(tecla, &POSICAO) == 1) return;
+        int devemosRetornar = teclasMenuSair(tecla, &POSICAO);
+        if (devemosRetornar) return;
     }
 }
 
@@ -86,21 +87,5 @@ void desenharSetasMenuSair(int posicao) {
         else printf(" ");
     }
 }
-
-/* void desenharSetasMenuInicial(int posicao) { */
-/*     // Desenha as setas no menu inicial quando o jogador se mexe */
-/*     int posxPorOpcao[4] = {33, 33, 32, 34}; // Posicoes x onde a seta deve ser inserida */
-/*     int posyPrimeiraOpcao = 6; // Posicao y da primeira opcao */
-
-/*     // Percorre a quantidade de opcoes */
-/*     for (int i = 0; i < 4; i++) { */
-/*         // Coloca o cursor na posicao aonde a seta deve ser inserida */
-/*         setPosCursor(posxPorOpcao[i], posyPrimeiraOpcao + i); */
-
-/*         // Se for a opcao selecionada, escreve >, se nao, limpa o > que ta ali (troca por espaco) */
-/*         if (posicao == i) printf(">"); */
-/*         else printf(" "); */
-/*     } */
-/* } */
 
 #endif
