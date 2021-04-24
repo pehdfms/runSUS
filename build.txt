@@ -1,1 +1,0 @@
-gcc -IHeaders .\runSUS.c -o runSUS.exe -O3
