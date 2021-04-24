@@ -8,13 +8,14 @@
 #include "utils.h"
 
 void sair();
-int teclasMenuSair(int *posicao);
+int teclasMenuSair(int tecla, int *posicao);
 
 // TODO: Separar a escrita das setas no menu para uma funcao separada
 
 void sair() {
     // Desenha o menu de sair
     const int VOLTAR = 0, FECHAR = 1;
+    const int quantidadeOpcoes = 2;
     int POSICAO = VOLTAR;
 
     while(1) {
@@ -38,25 +39,18 @@ void sair() {
         // Pega tecla do usuario
         // Se a funcao retornar 1, significa que usuario pressionou VOLTAR
         // e devemos voltar para o menu inicial
-        if (teclasMenuSair(&POSICAO) == 1) return;
+        int tecla = getch();
+
+        moverPosicaoMenu(tecla, quantidadeOpcoes, &POSICAO);
+        if (teclasMenuSair(tecla, &POSICAO) == 1) return;
     }
 }
 
-int teclasMenuSair(int *posicao) {
+int teclasMenuSair(int tecla, int *posicao) {
     // Recebe e cuida das teclas usadas pelo usuario no menu sair
     const int VOLTAR = 0, FECHAR = 1; // Posicoes dos botoes, maior = mais baixo na tela
 
-    switch(getch()) {
-        case KEY_DOWN:
-            // Se o jogador pressionou para baixo, move sua opcao para baixo
-            (*posicao)++;
-            if (*posicao > 1) *posicao = 0; // Se estiver na ultima opcao, volta a primeira
-            break;
-        case KEY_UP:
-            // Se o jogador pressionou para baixo, move sua opcao para baixo
-            (*posicao)--;
-            if (*posicao < 0) *posicao = 1; // Se estiver na ultima opcao, volta a primeira
-            break;
+    switch(tecla) {
         case KEY_ENTER:
             // Se clicar ENTER, aplicamos a funcao que ele tiver selecionado
             // Retornamos 1 quando voltar para que sair() saiba que tem que voltar tambem
