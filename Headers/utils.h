@@ -116,6 +116,7 @@ Score criarScore(char nome[5], int pontuacao) {
     return novoScore;
 }
 
+// TODO funcao desenharSetas generalizada
 /* void desenharSetas(int quantidadeOpcoes, int posicao, int posyPrimeiraOpcao, int posxPorOpcao[]); */
 /* void desenharSetas(int quantidadeOpcoes, int posicao, int posyPrimeiraOpcao, int posxPorOpcao[]) { */
 /*     // Desenha as setas em menus de opcao (e.g Inicial, Sair) */
