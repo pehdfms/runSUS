@@ -13,10 +13,10 @@ int teclasMenuSair(int tecla, int *posicao);
 // TODO: Separar a escrita das setas no menu para uma funcao separada
 
 void sair() {
-    // Desenha o menu de sair
+    // Escreve o menu sair e pega interacao com o usuario
     const int VOLTAR = 0, FECHAR = 1;
-    const int quantidadeOpcoes = 2;
-    int POSICAO = VOLTAR;
+    const int quantidadeOpcoes = 2; // Quantidade de opcoes
+    int POSICAO = 0; // Posicao da seta do usuario no menu
 
     while(1) {
         system("cls");
@@ -36,12 +36,16 @@ void sair() {
         printf("\n\n                                                                       \n");
         printf("###########################################################################\n");
 
-        // Pega tecla do usuario
         // Se a funcao retornar 1, significa que usuario pressionou VOLTAR
         // e devemos voltar para o menu inicial
-        int tecla = getch();
+        int tecla = getch(); // Pega tecla do usuario
 
+        // Move sua posicao no menu dependendo de que botao clicou
         moverPosicaoMenu(tecla, quantidadeOpcoes, &POSICAO);
+
+        // Interacao com os botoes do menu
+        // teclasMenuSair retorna 1 quando o jogador quer voltar ao menu inicial
+        // portanto devemos esperar esse 1 e retornar aqui tambem se o recebemos
         if (teclasMenuSair(tecla, &POSICAO) == 1) return;
     }
 }
