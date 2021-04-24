@@ -34,9 +34,9 @@ void desenharTelaInicial() {
 }
 
 void menuInicial(Score ranking[]) {
-    // Escreve o menu inicial e cuida da interacao do usuario
-    int quantidadeOpcoes = 4; // Quantidade de opcoes no menu
-    int POSICAO = 0; // Posicao da escolha do usuario no menu
+    // Escreve o menu inicial e pega interacao com o usuario
+    const int quantidadeOpcoes = 4; // Quantidade de opcoes
+    int POSICAO = 0; // Posicao da seta do usuario no menu
 
     // Desenha a tela
     desenharTelaInicial();
