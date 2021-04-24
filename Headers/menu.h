@@ -74,13 +74,13 @@ void teclasMenuInicial(int tecla, int posicao, Score ranking[]) {
 }
 
 void desenharSetasMenuInicial(int posicao) {
-    // Desenha as setas no menu inicial quando o jogador se mexe
+    // Desenha as setas no menu inicial quando o jogador troca opcoes
     int posxPorOpcao[4] = {33, 33, 32, 34}; // Posicoes x onde a seta deve ser inserida
-    int posyPrimeiraOpcao = 6; // Posicao y da primeira opcao
+    int posyPrimeiraOpcao = 6; // Posicao y da seta na primeira opcao
 
     // Percorre a quantidade de opcoes
     for (int i = 0; i < 4; i++) {
-        // Coloca o cursor na posicao aonde a seta deve ser inserida
+        // Coloca o cursor na posicao aonde a seta pode ser inserida
         setPosCursor(posxPorOpcao[i], posyPrimeiraOpcao + i);
 
         // Se for a opcao selecionada, escreve >, se nao, limpa o > que ta ali (troca por espaco)
