@@ -11,8 +11,6 @@ void sair();
 int teclasMenuSair(int tecla, int posicao);
 void desenharSetasMenuSair(int posicao);
 
-// TODO: Separar a escrita das setas no menu para uma funcao separada
-
 void sair() {
     // Escreve o menu sair e pega interacao com o usuario
     const int quantidadeOpcoes = 2; // Quantidade de opcoes
