@@ -8,7 +8,7 @@
 #include "utils.h"
 
 void sair();
-int teclasMenuSair(int tecla, int *posicao);
+int teclasMenuSair(int tecla, int posicao);
 void desenharSetasMenuSair(int posicao);
 
 // TODO: Separar a escrita das setas no menu para uma funcao separada
@@ -41,12 +41,12 @@ void sair() {
         // Interacao com os botoes do menu
         // teclasMenuSair retorna 1 quando o jogador quer voltar ao menu inicial
         // portanto devemos esperar esse 1 e retornar aqui tambem se o recebemos
-        int devemosRetornar = teclasMenuSair(tecla, &POSICAO);
+        int devemosRetornar = teclasMenuSair(tecla, POSICAO);
         if (devemosRetornar) return;
     }
 }
 
-int teclasMenuSair(int tecla, int *posicao) {
+int teclasMenuSair(int tecla, int posicao) {
     // Recebe e cuida das teclas usadas pelo usuario no menu sair
     const int VOLTAR = 0, FECHAR = 1; // Posicoes dos botoes, maior = mais baixo na tela
 
@@ -54,10 +54,10 @@ int teclasMenuSair(int tecla, int *posicao) {
         case KEY_ENTER:
             // Se clicar ENTER, aplicamos a funcao que ele tiver selecionado
             // Retornamos 1 quando voltar para que sair() saiba que tem que voltar tambem
-            if (*posicao == VOLTAR) return 1;
+            if (posicao == VOLTAR) return 1;
 
             // Se ele tiver selecionado para fechar
-            if (*posicao == FECHAR) {
+            if (posicao == FECHAR) {
                 system("cls");      // Limpamos a tela
                 printf("Tchau!\n"); // Escrevemos tchau
                 exit(0);            // Saimos do programa
