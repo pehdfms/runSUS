@@ -2,4 +2,6 @@
 build.txt
 ranking.txt
 *.exe
+*.o
+*.a
 tags
