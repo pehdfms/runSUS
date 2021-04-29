@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-#include "Headers/menu.h"
-#include "Headers/utils.h"
+#include "src/menu.h"
+#include "src/utils.h"
 
 int main() {
     // Esconde o cursor
