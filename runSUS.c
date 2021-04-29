@@ -11,7 +11,9 @@ int main() {
     Score pontuacoes[10];
 
     // lerArquivoRanking retorna 1 se nao conseguiu abrir o arquivo
-    if (lerArquivoRanking(pontuacoes)) {
+    int deuErro = lerArquivoRanking(pontuacoes);
+
+    if (deuErro) {
         // Se nao conseguimos ler, inicializamos o placar com valores padroes
         inicializarPlacar(pontuacoes);
 
