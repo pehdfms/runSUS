@@ -20,5 +20,5 @@ ou (se tiver make)
 Video para a versao Arduino:
 
 
-https://user-images.githubusercontent.com/35301623/127349404-6f818bd0-cc13-41af-821d-1f6280a644d1.mp4
+https://user-images.githubusercontent.com/35301623/127351634-94b38f63-41b7-444d-839c-5685979d83cc.mp4
 
