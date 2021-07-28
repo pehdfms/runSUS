@@ -8,6 +8,8 @@ Desenvolvedores -
   * Kaik Pessoa Felix
   * Vinicius Menin
   * Jean Clayton Oliveira
+  * Abel Chang
+  * Gabriel Ruiz
 
 Para compilar use o seguinte comando:
 
